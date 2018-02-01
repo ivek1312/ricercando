@@ -21,13 +21,13 @@ from Orange.widgets.utils.concurrent import (
     ThreadExecutor, FutureWatcher, methodinvoke
 )
 
-from monroe_anal.significance import (
+from ricercando.significance import (
     perm_test, hyper_test, chi2_test, t_test,
     fligner_killeen_test, mannwhitneyu_test,
     gumbel_min_test, gumbel_max_test,
     CORRECTED_LABEL,
 )
-from monroe_anal.orange_widgets.util import table_from_frame
+from ricercando.orange_widgets.util import table_from_frame
 
 log = logging.getLogger(__name__)
 

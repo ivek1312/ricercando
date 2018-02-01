@@ -3,14 +3,14 @@ import unittest.mock
 import pandas as pd
 from influxdb.resultset import ResultSet
 
-from monroe_anal import getdf, query, query_async
-from monroe_anal import (all_nodes,
+from ricercando import getdf, query, query_async
+from ricercando import (all_nodes,
                          all_tables,
                          nodes_for_table,
                          tables_for_node,
                          table_timerange)
 
-from monroe_anal.query_base import _ALLOWED_FREQS
+from ricercando.query_base import _ALLOWED_FREQS
 
 
 RESULTS = [
@@ -91,7 +91,7 @@ class MockedClient:
         return self.query(query, *args, **kwargs)
 
 
-@unittest.mock.patch('monroe_anal.connection._client', MockedClient())
+@unittest.mock.patch('ricercando.connection._client', MockedClient())
 class TestQuery(unittest.TestCase):
     def test_query(self):
         rs = query('select * from whatever')
@@ -106,7 +106,7 @@ class TestQuery(unittest.TestCase):
         self.assertEqual(sum(len(list(rs.get_points())) for rs in rs), N_ROWS)
 
 
-@unittest.mock.patch('monroe_anal.connection._client', MockedClient())
+@unittest.mock.patch('ricercando.connection._client', MockedClient())
 class TestDataFrame(unittest.TestCase):
     def test_data(self):
         df = getdf('ping')
@@ -148,7 +148,7 @@ class TestDataFrame(unittest.TestCase):
             self.assertLess(df.isnull().sum().sum(), n_null)
 
 
-@unittest.mock.patch('monroe_anal.connection._client', MockedClient())
+@unittest.mock.patch('ricercando.connection._client', MockedClient())
 class TestQueries(unittest.TestCase):
     def test_queries(self):
         self.assertEqual(all_nodes(), sorted(ALL_NODEIDS))

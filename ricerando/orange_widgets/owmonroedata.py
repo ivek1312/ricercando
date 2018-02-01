@@ -25,13 +25,13 @@ from Orange.widgets.utils.concurrent import (
     ThreadExecutor, FutureWatcher, methodinvoke
 )
 
-from monroe_anal import (
+from ricercando import (
     set_connection_params, all_nodes, tables_for_node,
     table_timerange, distinct_values, all_tables,
     getdf,
 )
-from monroe_anal.query_base import _ALLOWED_FREQS
-from monroe_anal.orange_widgets.util import table_from_frame
+from ricercando.query_base import _ALLOWED_FREQS
+from ricercando.orange_widgets.util import table_from_frame
 
 
 log = logging.getLogger(__name__)

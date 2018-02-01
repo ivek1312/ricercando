@@ -19,5 +19,5 @@ WIDGET_HELP_PATH = (
 # Url should point to a page with a section Widgets. This section should
 # includes links to documentation pages of each widget. Matching is
 # performed by comparing link caption to widget name.
-("http://monroe-anal.readthedocs.io/en/latest/", "")
+("http:/ricercando.readthedocs.io/en/latest/", "")
 )

@@ -9,14 +9,14 @@ VERSION = '0.1.0'
 if __name__ == '__main__':
 
     setup(
-        name="monroe-anal",
+        name="ricercando",
         description="Utility library for querying, analyzing, and visualizing MONROE data",
         version=VERSION,
         author='UL FRI, Biolab',
-        url='https://github.com/biolab/monroe-anal',
+        url='https://github.com/ivek1312/ricercando',
         keywords=(
         ),
-        test_suite='monroe_anal.tests',
+        test_suite='ricercando.tests',
         packages=find_packages(),
         package_data={
         },
@@ -31,8 +31,8 @@ if __name__ == '__main__':
             'influxdb',
         ],
         entry_points={
-            'orange3.addon': ('monroe = monroe_anal',),
-            'orange.widgets': ('MONROE = monroe_anal.orange_widgets',),
+            'orange3.addon': ('monroe = ricercando',),
+            'orange.widgets': ('MONROE = ricercando.orange_widgets',),
         },
         classifiers=[
             'Framework :: IPython',

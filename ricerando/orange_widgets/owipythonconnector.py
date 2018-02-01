@@ -11,8 +11,8 @@ from AnyQt.QtCore import QFileSystemWatcher
 from Orange.data import Table
 from Orange.widgets import widget, settings, gui
 
-from monroe_anal.ipython_connector import IPythonStore
-from monroe_anal.orange_widgets.util import table_from_frame
+from ricercando.ipython_connector import IPythonStore
+from ricercando.orange_widgets.util import table_from_frame
 
 
 STORE = IPythonStore()
