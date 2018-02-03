@@ -1,9 +1,8 @@
 #!/bin/bash
-
 set -e
 
-python3 -c 'import monroe_anal.db' >/dev/null 2>&1 || {
-    echo 'ERROR: Install python package first. pip install monroe_anal'
+python3 -c 'import ricercando.db' >/dev/null 2>&1 || {
+    echo 'ERROR: Install python package first. pip install ricercando'
     exit 1
 }
 command -v csvtool >/dev/null || {
@@ -97,7 +96,7 @@ _first_time() {
 # Make distinct level-of-detail tables for faster retrieval
 echo 'Making LOD tables ...'
 for table in $tables; do
-    agg_columns="$(python3 -c "from monroe_anal.db import $table; print($table._select_agg())")"
+    agg_columns="$(python3 -c "from ricercando.db import $table; print($table._select_agg())")"
     start_time="$(_first_time "$table" ASC)"
     end_time="$(_first_time "$table" DESC)"
     for time_bin in '1s' '1m' '30m'; do
