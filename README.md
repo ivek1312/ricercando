@@ -13,6 +13,7 @@ The toolbox consists of:
 
 Prerequisites
 ------------
+
 To use Ricercando toolbox within Orange data mining suite, install [Orange] 3.9+ first.  
 
 To use time-series and visualisation notebooks, install the following Python packages:
@@ -48,6 +49,7 @@ whenever updating is desired.
 
 Usage
 -----
+
 For help on [how to query data], see the relevant Jupyter notebook.
 
 Instructions set up your own [MONROE data copy in an Influx DB].
@@ -61,3 +63,9 @@ For using Ricercando add-on in Orange, see examples in [_workflows_ directory].
 [_notebooks_ directory]: notebooks/
 [_workflows_ directory]: workflows/
 
+Credits
+------------
+
+Ricercando is a project of the [Faculty of Computer and Information Science], University of Ljubljana, Slovenia. 
+
+[Faculty of Computer and Information Science]: http://www.fri.uni-lj.si/en
