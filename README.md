@@ -49,8 +49,11 @@ whenever updating is desired.
 Usage
 -----
 For help on [how to query data], see the relevant Jupyter notebook.
+
 Instructions set up your own [MONROE data copy in an Influx DB].
+
 Visualisation Jupyter notebooks are in the [_notebooks_ directory].
+
 For using Ricercando add-on in Orange, see examples in [_workflows_ directory].
 
 [how to query data]: notebooks/data.ipynb
