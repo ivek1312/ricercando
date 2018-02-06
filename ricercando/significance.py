@@ -141,6 +141,11 @@ def perm_test(X, y, *, statistic='mean', n_iter=300, n_jobs=1,
             n = round(n, -int(np.log10(n)))
 
         sample_distance = statistic_func(group)
+        
+        # Clip n to y size to avoid 'larger sample than population'
+        # error in pd.Series.sample()
+        n = min(n, len(y))
+    
 
         distances = cache.get(n)
         print('' if distances is None else n, sep='', end='.')
