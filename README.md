@@ -6,7 +6,7 @@ RICERCANDO - Network Measurement Analysis Toolbox
 The toolbox consists of:
 * A Python 3 utility library (Ricercando) for querying, analyzing, and visualizing [MONROE] data.
 * An Orange add-on for accessing MONROE data, either from an Influx DB database or a locally stored Dataframe file, and for Significant Group analysis.
-* Jupyter notebooks for rapid time-series and geographical analysis of MONROE data.
+* Jupyter notebooks for rapid time-series and geographical analysis of MONROE data, and for automatic detection of anomalies.
 * Utility scripts for managing a local copy of MONROE data using Influx DB. 
 
 [MONROE]: https://www.monroe-project.eu/
