@@ -3,13 +3,13 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 
 if __name__ == '__main__':
 
     setup(
-        name="ricercando",
+        name="Orange3-ricercando",
         description="Utility library for querying, analyzing, and visualizing MONROE data",
         version=VERSION,
         author='UL FRI, Biolab',
@@ -24,6 +24,7 @@ if __name__ == '__main__':
             'setuptools_git >= 0.3',
         ],
         install_requires=[
+            'Orange3',
             'numpy',
             'pandas >= 0.19.0',
             'ipython',
