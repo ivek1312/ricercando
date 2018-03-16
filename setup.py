@@ -3,13 +3,13 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 
 
 if __name__ == '__main__':
 
     setup(
-        name="Orange3-ricercando",
+        name="ricercando",
         description="Utility library for querying, analyzing, and visualizing MONROE data",
         version=VERSION,
         author='UL FRI, Biolab',
