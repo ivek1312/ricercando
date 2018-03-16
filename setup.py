@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 
 if __name__ == '__main__':
@@ -14,8 +14,7 @@ if __name__ == '__main__':
         version=VERSION,
         author='UL FRI, Biolab',
         url='https://github.com/ivek1312/ricercando',
-        keywords=(
-        ),
+        keywords=('orange3 add-on'),
         test_suite='ricercando.tests',
         packages=find_packages(),
         package_data={
