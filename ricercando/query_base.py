@@ -112,11 +112,33 @@ def _query_str(table, *, freq, columns='', where='', resample='', limit=1000):
     query_str = ' '.join(parts)
     return query_str
 
+def merge_asof_helper (left, right, tolerance=None):
+    #https://github.com/pandas-dev/pandas/issues/16454 pandas doesnt allow multiple pd.Categorical "by" values?, dirty hacks
+    
+    if 'time' in left.columns.values.tolist():
+        left.time = pd.to_datetime(left.time, unit='ms')
+        left.set_index('time', inplace=True)
+        left.sort_index(inplace=True)
+    
+    right.time = pd.to_datetime(right.time, unit='ms')
+    right.set_index('time', inplace=True)
+    right.sort_index(inplace=True)
+    
+    temp = pd.merge_asof(left, right, left_index=True, right_index=True, 
+                         by=[a for a in list(set(left.columns.values.tolist()).intersection(right.columns.values.tolist())) 
+                             if a not in ['Interface','Operator'] ], 
+                         direction='backward', tolerance=tolerance, suffixes=('_left', '_right'))   
+
+    temp.rename(columns=lambda x: x if not x.endswith('_left') else x[:-len('_left')], inplace=True) # rename left cols, there is more data in it
+    temp.drop(columns=[x for x in temp.columns.values.tolist() if x.endswith('_right')], inplace=True, axis=1) # drop right cols, not so much data
+    return temp
+
 
 def getdf(tables, *, nodeid='', where='', limit=100000,
           start_time=None, end_time=None,
           freq=None, resample='',
           interpolate=False,
+          tolerance=None,
           callback=None) -> pd.DataFrame:
     """
     Return MONROE data as Pandas DataFrame.
@@ -204,12 +226,17 @@ def getdf(tables, *, nodeid='', where='', limit=100000,
         df = _result_set_to_df(results)
         if df is not None:
             dfs.append(df)
-
+            
     if not dfs:
         return pd.DataFrame()
 
     # Join all tables on intersecting columns, namely 'time', 'NodeId', 'IccId', ...
-    df = reduce(partial(pd.merge, how='outer', copy=False), dfs)
+    
+    if tolerance is not None:
+        df = reduce(partial(merge_asof_helper, tolerance=tolerance), sorted(dfs, key=lambda x: x.size, reverse=True))
+    else:
+        df = reduce(partial(pd.merge, how='outer', copy=False), dfs)
+    
     del dfs
 
     # Transform known categorical columns into Categoricals
@@ -225,9 +252,10 @@ def getdf(tables, *, nodeid='', where='', limit=100000,
             df[col].fillna(np.nan, inplace=True)
 
     # Index by time
-    df.time = pd.to_datetime(df.time, unit='ms')
-    df.set_index('time', inplace=True)
-    df.sort_index(inplace=True)
+    if tolerance is None:
+        df.time = pd.to_datetime(df.time, unit='ms')
+        df.set_index('time', inplace=True)
+        df.sort_index(inplace=True)
 
     if resample and not df.empty:
         df = _resample(df, resample)
