@@ -63,7 +63,7 @@ class gps(_Table):
 
 class sensor(_Table):
     NodeId = _GROUP_BY
-    CPU_User = CPU_Apps = Free = Swap = bat_usb0 = bat_usb1 = bat_usb2 = 'mean'
+    CPU_User = CPU_Apps = Free = Swap = 'mean'
     BootCounter = Uptime = CumUptime = 'max'
     _default_field = 'Uptime'
 
@@ -76,15 +76,15 @@ class event(_Table):
 
 class modem(_Table):
     NodeId = Iccid = _GROUP_BY
-    Interface = CID = DeviceMode = DeviceState = Frequency = MCC_MNC = Operator = IP_Address = 'mode'
-    ECIO = RSRQ = RSSI = 'mean'
+    Interface = CID = DeviceMode = DeviceState = Frequency = MCC_MNC = Operator = IP_Address = Band = 'mode'
+    RSCP = RSRP = ECIO = RSRQ = RSSI = 'mean'
     _default_field = 'DeviceMode'
 
     def __transform__(self, df):
         # from https://github.com/MONROE-PROJECT/data-exporter
         if 'DeviceMode' in df:
             df.DeviceMode.replace(
-                dict(enumerate(('unknown', 'disconnected', 'no_service', '2G', '3G', 'LTE'), 1)),
+                dict(enumerate(('unknown', 'disconnected', 'no_service', '2G', '3G', 'LTE'))),
                 inplace=True)
         if 'DeviceState' in df:
             df.DeviceState.replace(
