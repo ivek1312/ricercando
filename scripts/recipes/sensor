@@ -1,2 +1,2 @@
-nodeid,cpu,id,current,total,user,apps,free,swap,usb0,usb1,usb2,timestamp
-NodeId Temperature,BootCounter,Uptime,CumUptime,CPU_User,CPU_Apps,FreeRAM,Swap,bat_usb0,bat_usb1,bat_usb2
+nodeid,cpu,id,current,total,user,apps,free,swap,iowait,timestamp
+NodeId Temperature,BootCounter,Uptime,CumUptime,CPU_User,CPU_Apps,FreeRAM,IOWait,Swap
