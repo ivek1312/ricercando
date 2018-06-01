@@ -63,20 +63,20 @@ class gps(_Table):
 
 class sensor(_Table):
     NodeId = _GROUP_BY
-    CPU_User = CPU_Apps = Free = Swap = 'mean'
-    BootCounter = Uptime = CumUptime = 'max'
+    CPU_User = CPU_Apps = FreeRAM = Swap = Temperature = 'mean'
+    BootCounter = Uptime = CumUptime = IOWait = 'max'
     _default_field = 'Uptime'
 
 
 class event(_Table):
     NodeId = _GROUP_BY
-    EventType = Message = 'mode'
+    EventType = Message = ExperimentId = 'mode'
     _default_field = 'EventType'
 
 
 class modem(_Table):
     NodeId = Iccid = _GROUP_BY
-    Interface = CID = DeviceMode = DeviceState = Frequency = MCC_MNC = Operator = IP_Address = Band = 'mode'
+    Interface = CID = ENODEBID = PCI = DeviceMode = DeviceState = DeviceSubmode = Frequency = MCC_MNC = Operator = IP_Address = LAC = Band = 'mode'
     RSCP = RSRP = ECIO = RSRQ = RSSI = 'mean'
     _default_field = 'DeviceMode'
 
@@ -89,6 +89,10 @@ class modem(_Table):
         if 'DeviceState' in df:
             df.DeviceState.replace(
                 dict(enumerate(('unknown', 'registered', 'unregistered', 'connected', 'disconnected'))),
+                inplace=True)
+        if 'DeviceSubmode' in df:
+            df.DeviceSubmode.replace(
+                dict(enumerate(('unknown', 'UMTS', 'WCDMA', 'EVDO', 'HSPA', 'HSPA+', 'DC HSPA', 'DC HSPA+', 'HSDPA', 'HSUPA', 'HSDPA+HSUPA', 'HSDPA+', 'HSDPA+HSUPA', 'DC HSDPA+', 'DC HSDPA + HSUPA'))),
                 inplace=True)
         return df
 
