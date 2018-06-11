@@ -21,8 +21,8 @@ if __name__ == '__main__':
           ],
         package_data={
             'ricercando': [
+                'orange_widgets/icons/*',
                 'orange_widgets/*',
-                'orange_widgets/isons/*'
           ],
         },
         include_package_data=True,
