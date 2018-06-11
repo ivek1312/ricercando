@@ -17,10 +17,10 @@ if __name__ == '__main__':
         keywords=('orange3 add-on'),
         test_suite='ricercando.tests',
         packages=[
-          'package',
+          'ricercando',
           ],
         package_data={
-            'package': [
+            'ricercando': [
                 'orange_widgets/*'
           ],
         },
