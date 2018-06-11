@@ -95,6 +95,18 @@ class modem(_Table):
                 dict(enumerate(('unknown', 'UMTS', 'WCDMA', 'EVDO', 'HSPA', 'HSPA+', 'DC HSPA', 'DC HSPA+', 'HSDPA', 'HSUPA', 'HSDPA+HSUPA', 'HSDPA+', 'HSDPA+HSUPA', 'DC HSDPA+', 'DC HSDPA + HSUPA'))),
                 inplace=True)
         return df
+    
+class nettest(_Table):
+    NodeId = Iccid = _GROUP_BY
+    Operator = 'mode'
+    Download = Upload = RTTClient = RTTServer = 'mean'
+    _default_field = 'Download'
+    
+class tstat_tcp_complete(_Table):
+    NodeId = Iccid = _GROUP_BY
+    FQDN = 'mode'
+    CbytesAll = SbytesAll = Duration = CRTTAVG = CRTTSTD = CPktsRetx = CPktsOOO = 'mean'
+    _default_field = 'FQDN'
 
 
 # Hide .mro() member by exposing instances instead of types
@@ -103,6 +115,10 @@ gps = gps()
 sensor = sensor()
 event = event()
 modem = modem()
+nettest = nettest()
+tstat_tcp_complete = tstat_tcp_complete()
+
+
 for name, table_type in list(globals().items()):
     if not name.startswith('_') and isinstance(table_type, type) and issubclass(table_type, _Table):
         globals()[name] = table_type()
