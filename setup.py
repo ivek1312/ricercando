@@ -21,7 +21,7 @@ if __name__ == '__main__':
           ],
         package_data={
             'ricercando': [
-                'ricercando/orange_widgets/*'
+                'orange_widgets/*'
           ],
         },
         include_package_data=True,
