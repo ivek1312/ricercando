@@ -16,7 +16,7 @@ if __name__ == '__main__':
         url='https://github.com/ivek1312/ricercando',
         keywords=('orange3 add-on'),
         test_suite='ricercando.tests',
-        packages=find_packages(),
+        packages='package',
         package_data={
             'package': [
                 'orange_widgets/*'
