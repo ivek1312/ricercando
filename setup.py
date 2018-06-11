@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.1.3'
+VERSION = '0.1.4'
 
 
 if __name__ == '__main__':
@@ -18,6 +18,9 @@ if __name__ == '__main__':
         test_suite='ricercando.tests',
         packages=find_packages(),
         package_data={
+            'package': [
+                'orange_widgets/*'
+          ],
         },
         include_package_data=True,
         setup_requires=[
