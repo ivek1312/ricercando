@@ -25,7 +25,7 @@ if __name__ == '__main__':
                 'orange_widgets/*',
           ],
         },
-        include_package_data=True,
+        include_package_data=False,
         setup_requires=[
             'setuptools_git >= 0.3',
         ],
