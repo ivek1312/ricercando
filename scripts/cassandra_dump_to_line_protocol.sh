@@ -35,9 +35,19 @@ for table in $tables; do
       read -r tags fields; } < "$recipes/$table"
 
     echo "    $table" >&2
-
+    
+    realfile="$table"
+    
+    if [[ $table = *"pcomplete"* ]]; then
+        if [[ $table = "tcpcomplete" ]]; then
+            realfile="tcp_complete"
+        elif [[ $table = "udpcomplete" ]]; then
+            realfile="udp_complete"
+        fi
+    fi
+    
     # For each file of "table" type, in date-ascending order
-    for file in $(ls -v *"$table"*.csv.txz); do
+    for file in $(ls -v *"$realfile"*.csv.txz); do
         [ ! -f "$file" ] && continue
 
         echo "        $file" >&2
