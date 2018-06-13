@@ -102,11 +102,35 @@ class nettest(_Table):
     Download = Upload = RTTClient = RTTServer = 'mean'
     _default_field = 'Download'
     
-class tstat_tcp_complete(_Table):
+class tcpcomplete(_Table):
     NodeId = Iccid = _GROUP_BY
-    FQDN = 'mode'
-    CbytesAll = SbytesAll = Duration = CRTTAVG = CRTTSTD = CPktsRetx = CPktsOOO = 'mean'
-    _default_field = 'FQDN'
+    TCPFQDN = 'mode'
+    TCPCbytesAll = TCPSbytesAll = TCPDuration = TCPCRTTAVG = TCPCRTTSTD = TCPCPktsRetx = TCPCPktsOOO =  TCPSPktsRetx = TCPSPktsOOO = 'mean'
+    _default_field = 'TCPFQDN'
+    
+    def __transform__(self, df):
+        if 'TCPCbytesAll' in df and 'TCPDuration' in df:
+            df['TCPGoodPutUpload'] = df['TCPCbytesAll']*8/df['TCPDuration']
+        
+        if 'TCPSbytesAll' in df and 'TCPDuration' in df:
+            df['TCPGoodPutDownload'] = df['TCPSbytesAll']*8/df['TCPDuration']
+        return df
+
+        
+    
+class udpcomplete(_Table):
+    NodeId = Iccid = _GROUP_BY
+    UDPFQDN = 'mode'
+    UDPCbytesAll = UDPSbytesAll = UDPCDurat = UDPSDurat = 'mean'
+    _default_field = 'UDPFQDN'
+    
+    def __transform__(self, df):
+        if 'UDPCbytesAll' in df and 'UDPCDurat' in df:
+            df['UDPGoodPutUpload'] = df['UDPCbytesAll']*8/df['UDPCDurat']
+        
+        if 'UDPSbytesAll' in df and 'UDPSDurat' in df:
+            df['UDPGoodPutDownload'] = df['UDPSbytesAll']*8/df['UDPSDurat']
+        return df
 
 
 # Hide .mro() member by exposing instances instead of types
@@ -116,7 +140,8 @@ sensor = sensor()
 event = event()
 modem = modem()
 nettest = nettest()
-tstat_tcp_complete = tstat_tcp_complete()
+tcpcomplete = tcpcomplete()
+udpcomplete = udpcomplete()
 
 
 for name, table_type in list(globals().items()):
