@@ -1,0 +1,3 @@
+NodeId,Iccid,c_bytes_all,s_bytes_all,c_durat,s_durat,fqdn,c_first_abs
+NodeId,Iccid UDPCbytesAll,UDPSbytesAll,UDPCDurat,UDPSDurat,UDPFQDN
+

@@ -1,0 +1,2 @@
+nodeid,iccid,operator,res_dl_throughput_kbps,res_ul_throughput_kbps,res_rtt_tcp_payload_client_ns,res_rtt_tcp_payload_server_ns,res_status,timestamp
+NodeId,Iccid Operator,Download,Upload,RTTClient,RTTServer,Status

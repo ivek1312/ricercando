@@ -1,0 +1,4 @@
+NodeId,Iccid,c_bytes_all,s_bytes_all,durat,c_rtt_avg,c_rtt_std,c_pkts_retx,c_pkts_ooo,s_pkts_retx,s_pkts_ooo,fqdn,first
+NodeId,Iccid TCPCbytesAll,TCPSbytesAll,TCPDuration,TCPCRTTAVG,TCPCRTTSTD,TCPCPktsRetx,TCPCPktsOOO,TCPSPktsRetx,TCPSPktsOOO,TCPFQDN
+
+
