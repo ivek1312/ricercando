@@ -216,9 +216,9 @@ def getdf(tables, *, nodeid='', where='', limit=100000,
                for table in tables]
 
     # If output will contain column Iccid, ensure it also contains modem.Interface
-    if db.modem not in tables and any('Iccid' in table for table in tables):
-        queries.append(_query_for_table(db.modem, where, freq, limit,
-                                        columns=['Interface', 'Iccid']))
+    #if db.modem not in tables and any('Iccid' in table and table!='nettest' for table in tables):
+    #    queries.append(_query_for_table(db.modem, where, freq, limit,
+    #                                    columns=['Interface', 'Iccid']))
 
     # Construct response data frames; One df per measurement per tag
     dfs = []
