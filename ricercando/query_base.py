@@ -232,7 +232,7 @@ def getdf(tables, *, nodeid='', where='', limit=100000,
 
     # Join all tables on intersecting columns, namely 'time', 'NodeId', 'IccId', ...
     
-    if (tolerance is not None) and (len(table)>1):
+    if (tolerance is not None) and (len(tables)>1):
         df = reduce(partial(merge_asof_helper, tolerance=tolerance), sorted(dfs, key=lambda x: x.size, reverse=True))
     else:
         df = reduce(partial(pd.merge, how='outer', copy=False), dfs)
@@ -252,7 +252,7 @@ def getdf(tables, *, nodeid='', where='', limit=100000,
             df[col].fillna(np.nan, inplace=True)
 
     # Index by time
-    if (tolerance is None) or (len(table)==1):
+    if (tolerance is None) or (len(tables)==1):
         df.time = pd.to_datetime(df.time, unit='ms')
         df.set_index('time', inplace=True)
         df.sort_index(inplace=True)
