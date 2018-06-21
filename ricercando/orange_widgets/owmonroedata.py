@@ -428,7 +428,7 @@ class OWMonroeData(widget.OWWidget):
         # Remember selected tables
         layout = self.box_include_data.layout()
         tables = self.included_data = {
-            w.text()
+            w.text().replace("&", "")
             for w in (layout.itemAt(i).widget()
                       for i in range(layout.count()))
             if w.isChecked()}
