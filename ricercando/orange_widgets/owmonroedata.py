@@ -110,7 +110,7 @@ class OWMonroeData(widget.OWWidget):
 
     auto_commit = settings.Setting(True)
 
-    con_hostname = settings.Setting('192.168.27.75')
+    con_hostname = settings.Setting('localhost')
     con_port = settings.Setting('8086')
     con_username = settings.Setting('monroe')
     con_password = settings.Setting('secure')
@@ -165,7 +165,7 @@ class OWMonroeData(widget.OWWidget):
 
         box = gui.vBox(self.controlArea, 'Database Connection')
         gui.lineEdit(box, self, 'con_hostname', label='Hostname:',
-                     orientation=Qt.Horizontal, validator=Validator.Hostname())
+                     orientation=Qt.Horizontal)
         gui.lineEdit(box, self, 'con_port', label='Port:',
                      orientation=Qt.Horizontal, validator=Validator.Port())
         gui.lineEdit(box, self, 'con_username', label='Username:',
