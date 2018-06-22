@@ -118,6 +118,8 @@ class OWMonroeData(widget.OWWidget):
     con_timeout = settings.Setting(60)
 
     sample_size = settings.Setting(2000)
+    tolerance_seconds = settings.Setting(60)
+
     included_data = settings.Setting({'event', 'ping', 'gps', 'modem', 'sensor'})
 
     LABEL_CONNECT = 'Co&nnect && Update Node Info'
@@ -220,6 +222,9 @@ class OWMonroeData(widget.OWWidget):
         self.box_include_data = gui.vBox(box, 'Include')
 
         gui.spin(box, self, 'sample_size', 100, 20000, 100, label='Sample size:')
+        
+        gui.spin(box, self, 'tolerance_seconds', 0, 600, 1, label='Join tolerance(s):')
+        
         gui.comboBox(box, self, 'sample_resolution',
                      label='Resolution:',
                      orientation=Qt.Horizontal,
@@ -444,6 +449,7 @@ class OWMonroeData(widget.OWWidget):
         set_progress = methodinvoke(self, "setProgressValue", (float,))
 
         def func():
+            
             if not nodes:
                 raise self.Cancelled
 
@@ -459,7 +465,10 @@ class OWMonroeData(widget.OWWidget):
                        end_time=self.date_to.textFromDateTime(self.date_to.dateTime()),
                        freq=self.RESOLUTION[self.sample_resolution],
                        interpolate=self.INTERPOLATION[self.sample_interpolation],
+                       tolerance=None  if self.tolerance_seconds==0 else pd.Timedelta(seconds=self.tolerance_seconds), 
                        callback=progress_advance)
+                        
+            
             return df
 
         task.future = self._executor.submit(func)
