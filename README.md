@@ -18,8 +18,8 @@ To use Ricercando toolbox within Orange data mining suite, install [Orange] 3.9+
 
 To use time-series and visualisation notebooks, install the following Python packages:
 * pandas
-* ipywidgets v6.0.1
-* bokeh v0.12.14dev6 (available from conda)
+* ipywidgets
+* bokeh
 * paramnb
 * colorcet
 * geoviews (available from conda)
@@ -44,8 +44,8 @@ in development mode:
     python setup.py test
 
 Then issue `git pull` within _ricercando_ directory every now and
-then. The alternative is to re-run above `pip install git+...` command
-whenever updating is desired.
+then. The alternative is to re-runn`pip install git+https://github.com/ivek1312/ricercando`
+command whenever updating is desired.
 
 Usage
 -----
