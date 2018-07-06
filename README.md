@@ -43,8 +43,8 @@ in development mode:
     # Run tests to confirm the package is installed correctly
     python setup.py test
 
-Then issue `git pull` within _ricercando_ directory every now and
-then. The alternative is to re-runn`pip install git+https://github.com/ivek1312/ricercando`
+Then issue `git pull` within _ricercando_ directory every now and then.
+The alternative is to re-run `pip install git+https://github.com/ivek1312/ricercando`
 command whenever updating is desired.
 
 Usage
