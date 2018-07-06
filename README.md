@@ -69,5 +69,4 @@ Credits
 Ricercando is a project of the [Faculty of Computer and Information Science], University of Ljubljana, Slovenia. 
 
 [Faculty of Computer and Information Science]: http://www.fri.uni-lj.si/en
-
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme.
