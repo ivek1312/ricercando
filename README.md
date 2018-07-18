@@ -26,6 +26,10 @@ To use time-series and visualisation notebooks, install the following Python pac
 
 [Orange]: https://orange.biolab.si/download/
 
+Installation of prerequisites using conda:
+
+    conda install -c conda-forge -c ioam -c pyviz orange3 pandas ipywidgets geoviews bokeh=0.13.0 colorcet param=1.7.0 paramnb qgrid=1.0.5 scikit-garden
+
 Installation
 ------------
 
