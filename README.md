@@ -71,7 +71,7 @@ Credits
 ------------
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme.
 
-Copyright (c) 2018, [Faculty of Computer and Information Science] University of Ljubljana, Slovenia: http://www.fri.uni-lj.si/en
+Copyright (c) 2018, [Faculty of Computer and Information Science]: http://www.fri.uni-lj.si/en University of Ljubljana, Slovenia
 Contact: Veljko Pejovic,  <veljko.pejovic@fri.uni-lj.si>
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
