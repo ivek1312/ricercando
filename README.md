@@ -69,8 +69,11 @@ For using Ricercando add-on in Orange, see examples in [_workflows_ directory].
 
 Credits
 ------------
-
-Ricercando is a project of the [Faculty of Computer and Information Science], University of Ljubljana, Slovenia. 
-
-[Faculty of Computer and Information Science]: http://www.fri.uni-lj.si/en
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme.
+
+Copyright (c) 2018, [Faculty of Computer and Information Science] University of Ljubljana, Slovenia: http://www.fri.uni-lj.si/en
+Contact: Veljko Pejovic,  <veljko.pejovic@fri.uni-lj.si>
+
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
